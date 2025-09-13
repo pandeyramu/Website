@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+  <div class="calculator">
+    <div class="header">
+        <div class="title">Calculator</div>
+        <button class="theme" id="themeBtn" onclick="toggleTheme()">🌙</button>
+    </div>
+    <div class="mode-toggle">
+        <button class="mode-btn active" onclick="setMode('basic')">Basic</button>
+        <button class="mode-btn" onclick="setMode('scientific')">Scientific</button>
+    </div>
+    <div class="display">
+        <div class="expression" id="expression"></div>
+        <div class="result" id="result">0</div>
+    </div>
+    <div class="scientific-functions" id="scientificfunctions">
+        <button class="function" onclick="inputFunction('sin')">sin</button>
+        <button class="function" onclick="inputFunction('cos')">cos</button>
+        <button class="function" onclick="inputFunction('tan')">tan</button>
+        <button class="function" onclick="inputFunction('log')">log</button>
+        <button class="function" onclick="inputFunction('asin')">sin⁻¹</button>
+        <button class="function" onclick="inputFunction('acos')">cos⁻¹</button>
+        <button class="function" onclick="inputFunction('atan')">tan⁻¹</button>
+        <button class="function" onclick="inputFunction('ln')">ln</button>
+        <button class="function" onclick="inputFunction('sqrt')">√</button>
+        <button class="function" onclick="inputFunction('pow2')">x²</button>
+        <button class="function" onclick="inputFunction('reciprocal')">1/x</button>
+        <button class="function" onclick="inputOperator('^')">x^y</button>
+        <button class="function" onclick="inputFunction('factorial')">x!</button>
+        <button class="function" onclick="inputFunction('abs')">|x|</button>
+        <button class="function" onclick="inputNumber('3.14159')">π</button>
+        <button class="function" onclick="inputNumber('2.71828')">e</button>
+        <button class="function" onclick="toggleSign()">±</button>
+        <button class="function" onclick="inputOperator('%')">%</button>
+        <button class="function" onclick="inputOperator('(')">(</button>
+        <button class="function" onclick="inputOperator(')')">)</button>
+    </div>
+    <div class="buttons">
+        <button class="clear" onclick="clearAll()">AC</button>
+        <button class="clear" onclick="clearEntry()">C</button>
+        <button class="function" onclick="backspace()">⌫</button>
+        <button class="operator" onclick="inputOperator('/')">÷</button>
+        <button class="number" onclick="inputNumber('7')">7</button>
+        <button class="number" onclick="inputNumber('8')">8</button>
+        <button class="number" onclick="inputNumber('9')">9</button>
+        <button class="operator" onclick="inputOperator('*')">×</button>
+        <button class="number" onclick="inputNumber('4')">4</button>
+        <button class="number" onclick="inputNumber('5')">5</button>
+        <button class="number" onclick="inputNumber('6')">6</button>
+        <button class="operator" onclick="inputOperator('-')">−</button>
+        <button class="number" onclick="inputNumber('1')">1</button>
+        <button class="number" onclick="inputNumber('2')">2</button>
+        <button class="number" onclick="inputNumber('3')">3</button>
+        <button class="operator add" onclick="inputOperator('+')">+</button>
+        <button class="number zero" onclick="inputNumber('0')">0</button>
+        <button class="number" onclick="inputDecimal()">.</button>
+        <button class="equals" onclick="calculate()">=</button>
+    </div>
+</div>
+    <script src="calculator.js"></script>
+</body>
+</html>
