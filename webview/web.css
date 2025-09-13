@@ -191,6 +191,10 @@
         #Rock {
             background: linear-gradient(135deg, #66fa48, #4caf50);
         }
+        
+        #Calculator {
+            background: linear-gradient(135deg, #48bcfa, #4cafa8);
+        }
 
         .project-card::before {
             content: '';
