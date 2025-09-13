@@ -1,91 +1,274 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(11, 128, 116);
-    background-image: linear-gradient(135deg, #077786, rgb(130, 118, 49));
-}
+            margin: 0;
+            padding: 0;
+            background-color: rgb(11, 128, 116);
+            background-image: linear-gradient(135deg, #077786, rgb(130, 118, 49));
+            min-height: 100vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
 
-#header {
-    text-align: center;
-    background-color: azure;
-    padding: 1.5rem;
-    font-size: 2rem;
-}
+        #header {
+            text-align: center;
+            background-color: azure;
+            padding: 1.5rem;
+            font-size: 2rem;
+            margin: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
 
-.choices {
-    margin: 3vh auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4vw;
-    flex-wrap: wrap;
-}
+        .msgc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2vh 0;
+            padding: 0 1rem;
+        }
 
-.choice {
-    width: 25vmin;
-    height: 35vmin;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-img:hover {
-    transform: scale(0.8);
-    box-shadow: 3px 10px 35px rgba(221, 57, 191, 1);
-    overflow: hidden;
-    cursor: pointer;
-}
+        #message {
+            text-align: center;
+            color: aliceblue;
+            font-size: 2.5rem;
+            background-color: rgb(86, 190, 107);
+            border-radius: 1rem;
+            max-width: 90%;
+            padding: 1rem;
+            margin: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-img {
-    width: 20vmin;
-    height: 30vmin;
-    border-radius: 50%;
-    object-fit: cover;
-}
+        .choices {
+            margin: 3vh auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4vw;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
 
-.msgc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2vh;
-}
+        .choice {
+            width: 25vmin;
+            height: 25vmin;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
 
-#message {
-    display: inline;
-    text-align: center;
-    margin-top: 40px;
-    color: aliceblue;
-    font-size: 2.5rem;
-        background-color: rgb(86, 190, 107);
-    border-radius: 1rem;
-    max-width: 80%;
+        .choice:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(221, 57, 191, 0.6);
+        }
 
-}
+        .choice:active {
+            transform: scale(0.95);
+        }
 
-.scoreb {
-    display: flex;
-    gap: 10rem;
-font-size: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 300;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+        img {
+            width: 18vmin;
+            height: 18vmin;
+            border-radius: 50%;
+            object-fit: cover;
+            pointer-events: none;
+        }
 
-.selectedch {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 5rem;
-}
+        .selectedch {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+            margin: 2vh 0;
+        }
 
-#uchoice,
-#compchoice {
-    display: inline;
-    text-align: center;
-    margin-top: 40px;
-    color: aliceblue;
-    font-size: 2rem;
-    background-color: rgb(196, 118, 59);
-    border-radius: 1rem;
-    max-width: 80%;
-}
+        .uch, .compch {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        #uchoice, #compchoice {
+            text-align: center;
+            color: aliceblue;
+            font-size: 1.6rem;
+            background-color: rgb(196, 118, 59);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scoreb {
+            display: flex;
+            gap: 8rem;
+            font-size: 2rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 300;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            flex-wrap: wrap;
+        }
+
+        .score {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            color: aliceblue;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            min-width: 100px;
+        }
+
+        .score p {
+            margin: 0.5rem 0;
+        }
+
+        #usersc, #compsc {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        @media (max-width: 1024px) {
+            #header {
+                font-size: 1.8rem;
+                padding: 1.2rem;
+            }
+            
+            .scoreb {
+                gap: 4rem;
+                font-size: 1.8rem;
+            }
+            
+            .selectedch {
+                gap: 1.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            #header {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .choices {
+                gap: 6vw;
+                margin: 2vh auto;
+            }
+            
+            .choice {
+                width: 22vmin;
+                height: 22vmin;
+            }
+            
+            img {
+                width: 16vmin;
+                height: 16vmin;
+            }
+            
+            .scoreb {
+                gap: 2rem;
+                font-size: 1.6rem;
+                padding: 1.5rem 1rem;
+            }
+            
+            .selectedch {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .uch, .compch {
+                min-width: auto;
+                width: 90%;
+            }
+            
+            #message {
+                font-size: 2rem;
+            }
+            
+            #uchoice, #compchoice {
+                font-size: 1.4rem;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #header {
+                font-size: 1.3rem;
+                padding: 0.8rem;
+            }
+            
+            .choices {
+                gap: 3vw;
+                justify-content: space-around;
+                margin: 2vh auto;
+            }
+            
+            .choice {
+                width: 20vmin;
+                height: 20vmin;
+            }
+            
+            img {
+                width: 14vmin;
+                height: 14vmin;
+            }
+            
+            .scoreb {
+                gap: 1rem;
+                font-size: 1.4rem;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .score {
+                padding: 1rem;
+                min-width: 80px;
+            }
+            
+            #usersc, #compsc {
+                font-size: 2.5rem;
+            }
+            
+            #message {
+                font-size: 1.6rem;
+                padding: 0.8rem;
+            }
+            
+            #uchoice, #compchoice {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .choice {
+                width: 18vmin;
+                height: 18vmin;
+            }
+            
+            img {
+                width: 12vmin;
+                height: 12vmin;
+            }
+            
+            .scoreb {
+                gap: 0.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .score {
+                padding: 0.8rem;
+                min-width: 70px;
+            }
+        }
