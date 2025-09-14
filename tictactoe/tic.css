@@ -29,7 +29,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 1/1;      /* auto square */
+  aspect-ratio: 1/1;
   background-color: #00bcd4;
   border-radius: 10px;
   border: 2px solid #fff;
@@ -37,10 +37,19 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.content:hover:not(.inactive) {
+.content:hover:not(.inactive):not(:disabled) {
   background-color: #0288d1;
   transform: scale(0.9);
   box-shadow: 2px 7px 30px rgba(186, 23, 195, 1);
+}
+.content:disabled {
+  background-color: #00bcd4;
+  cursor: not-allowed;
+  box-shadow: none;       
+}
+
+.content:disabled:hover {
+background-color: #00bcd4;
 }
 
 #reset {

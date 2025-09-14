@@ -8,7 +8,6 @@ let Win = [
   [0, 4, 8], [2, 4, 6], [1, 4, 7],
   [0, 3, 6], [2, 5, 8]
 ];
-boxes.forEach(box => box.classList.remove('inactive'));
 let computerMove = () => {
   let emptyBoxes = Array.from(boxes).filter(box => box.innerHTML === "");
   if (emptyBoxes.length === 0) return;
@@ -16,10 +15,7 @@ let computerMove = () => {
     let values = pattern.map(i => boxes[i].innerHTML);
     if (values.filter(v => v === "X").length === 2 && values.includes("")) {
       let index = pattern[values.indexOf("")];
-      boxes[index].innerHTML = "X";
-      boxes[index].disabled = true;
-      checkwinner();
-      turnA = true;
+      markBox(boxes[index], "X");
       return;
     }
   }
@@ -27,60 +23,73 @@ let computerMove = () => {
     let values = pattern.map(i => boxes[i].innerHTML);
     if (values.filter(v => v === "0").length === 2 && values.includes("")) {
       let index = pattern[values.indexOf("")];
-      boxes[index].innerHTML = "X";
-      boxes[index].disabled = true;
-      checkwinner();
-      turnA = true;
+      markBox(boxes[index], "X");
       return;
     }
   }
   let randomIndex = Math.floor(Math.random() * emptyBoxes.length);
-  let box = emptyBoxes[randomIndex];
-  box.innerHTML = "X";
+  markBox(emptyBoxes[randomIndex], "X");
+};
+function markBox(box, symbol) {
+  box.innerHTML = symbol;
   box.disabled = true;
+  box.classList.add("inactive");
   checkwinner();
   turnA = true;
-};
+}
+function disableAll() {
+  boxes.forEach(b => {
+    b.disabled = true;
+    b.classList.add("inactive");
+  });
+}
+
+function enableEmpty() {
+  boxes.forEach(b => {
+    if (b.innerHTML === "" && messageB.classList.contains("hide")) {
+      b.disabled = false;
+      b.classList.remove("inactive");
+    }
+  });
+}
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
-    if (box.innerHTML === "" && messageB.classList.contains("hide")) {
-      box.innerHTML = "0";
-      box.disabled = true;
-      checkwinner();
+    if (box.innerHTML === "" && messageB.classList.contains("hide") && turnA) {
+      markBox(box, "0");
+      turnA = false;
+
       if (!Array.from(boxes).every(b => b.innerHTML !== "") && messageB.classList.contains("hide")) {
-        turnA = false;
-        setTimeout(computerMove, 700);
+        disableAll();
+        setTimeout(() => {
+          computerMove();
+          enableEmpty();
+        }, 700);
       }
     }
   });
 });
-let disableboxes = () => {
-  boxes.forEach(box => box.disabled = true);
-};
-let enableboxes = () => {
-  boxes.forEach(box => {
-    box.disabled = false;
-    box.innerHTML = "";
-  });
-};
 const showWinner = (winner) => {
   mes.innerHTML = `Congratulations, Winner is ${winner}`;
   messageB.classList.remove("hide");
-  disableboxes();
-  boxes.forEach(box => box.classList.add('inactive'));
+  disableAll();
 };
+
 const draw = () => {
   mes.innerHTML = "It's a draw!";
   messageB.classList.remove("hide");
-  disableboxes();
-  boxes.forEach(box => box.classList.add('inactive'));
+  disableAll();
 };
+
 const resetF = () => {
   turnA = true;
-  enableboxes();
+  boxes.forEach(box => {
+    box.innerHTML = "";
+    box.disabled = false;
+    box.classList.remove("inactive");
+  });
   messageB.classList.add("hide");
-  boxes.forEach(box => box.classList.remove('inactive'));
 };
+
 const checkwinner = () => {
   let foundwinner = false;
   for (let pattern of Win) {
@@ -88,16 +97,16 @@ const checkwinner = () => {
     let pos2 = boxes[pattern[1]].innerHTML;
     let pos3 = boxes[pattern[2]].innerHTML;
 
-    if (pos1 !== "" && pos2 !== "" && pos3 !== "" && pos1 === pos2 && pos2 === pos3) {
+    if (pos1 !== "" && pos1 === pos2 && pos2 === pos3) {
       foundwinner = true;
       showWinner(pos1);
       break;
     }
   }
-
   if (!foundwinner && Array.from(boxes).every(box => box.innerHTML !== "")) {
     draw();
   }
 };
 
 resetBtn.addEventListener("click", resetF);
+window.addEventListener("load", resetF);
