@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=/webview/">
-    <title>Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramu Pandey's Portfolio</title>
+<link rel="icon" href="favicon2.png" type="image/png">
+<link rel="stylesheet" href="web.css">
 </head>
 <body>
-    <p>Loading...</p>
+    <div class="container">
+        <div class="introduction fade-in">
+            <div id="logo">
+                <img src="logo.jpg" alt="Ramu Pandey">
+            </div>
+            <header>
+                <h2>Ramu Pandey</h2>
+                <p>Learning Web Development</p>
+            </header>
+        </div>
+
+        <div id="aboutme" class="fade-in">
+            <h1 id="about">About Me</h1>
+            <p id="intro">
+                Welcome to my portfolio!<br><br>
+                I'm a passionate learner exploring the world of web development with HTML, CSS, and JavaScript. Currently,
+                I'm building my skills by creating small projects like simple games and interactive web pages.<br>
+                  Here, you'll find a collection of my practice projects such as Tic Tac Toe, Rock Paper Scissors, and more
+                fun experiments as I grow as a developer.<br>
+                   I'm eager to keep learning, improve my coding skills, and one day contribute to bigger projects. When I'm
+                not coding, I enjoy exploring new tech concepts and finding creative ways to solve problems.
+            </p>
+        </div>
+
+        <div id="project" class="fade-in">
+            <h1>My Projects</h1>
+        </div>
+
+        <div class="projects">
+            <div class="project-card fade-in" id="Tic">
+                <div class="project-icon">❌</div>
+                <h3>Tic Tac Toe</h3>
+                <p>Classic game of X's and O's. Play against a friend or challenge yourself!</p>
+                <a href="/tictactoe/tic.html" class="linkbtn" target="_blank">Play Now</a>
+            </div>
+
+            <div class="project-card fade-in" id="Rock">
+                <div class="project-icon">✂</div>
+                <h3>Rock Paper Scissors</h3>
+                <p>The timeless game of strategy and luck. Beat the computer!</p>
+                <a href="/rockpaperscissors/rock.html" class="linkbtn" target="_blank">Play Game</a>
+            </div>
+
+            <div class="project-card fade-in" id="Calculator">
+                <div class="project-icon">🧮</div>
+                <h3>Calculator</h3>
+                <p>Advanced calculator with multiple functions. Like Real One!</p>
+         <a href="/calculator/calculator.html" class="linkbtn" target="_blank"> Check Now</a>
+            </div>
+
+            <div class="project-card coming-soon fade-in">
+                <div class="project-icon">🤯</div>
+                <h3>Quiz Game</h3>
+                <p>Test your knowledge with interactive quizzes - Coming Soon!</p>
+                <span class="linkbtn" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+            </div>
+        </div>
+
+        <div id="foot" class="fade-in">
+            <footer id="footer">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to discussing new opportunities and interesting projects!</p>
+                <div class="contact-links">
+                    <a href="https://mail.google.com/mail/?view=cm&to=pandeyramu57@gmail.com" 
+                       target="_blank" class="btn">📧 Email</a>
+                    <a href="https://github.com/pandeyramu" class="btn" target="_blank"> 🐱 GitHub</a>
+                    <a href="https://www.facebook.com/ramu.pandey38" class="btn" target="_blank">ⓕ Facebook</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="web.js"></script>
 </body>
-</html>
