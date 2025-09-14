@@ -272,3 +272,23 @@ body {
                 min-width: 70px;
             }
         }
+        #reset {
+  display: block;
+  background-color: #9b1a56;
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#reset:hover {
+  background-color: #c2185b;
+  transform: scale(1.05);
+}
+ #reset {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }

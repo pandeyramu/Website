@@ -1,12 +1,23 @@
  let userscore = 0;
         let compscore = 0;
-        
+        let resetBtn = document.querySelector("#reset");
         const choices = document.querySelectorAll(".choice");
         const userc = document.querySelector("#uchoice");
         const compc = document.querySelector("#compchoice");
         const message = document.querySelector("#message");
         const userSC = document.querySelector("#usersc");
         const compSC = document.querySelector("#compsc");
+
+        const resetF = () => {
+              userscore = 0;
+    compscore = 0;
+    userSC.innerHTML = userscore;
+    compSC.innerHTML = compscore;
+    userc.innerHTML = "Make your choice";
+    compc.innerHTML = "Computer thinking...";
+    message.innerHTML = "Play your move!";
+    message.style.backgroundColor = "";
+};
         
         const compch = () => {
             const options = ["Rock", "Paper", "Scissor"];
@@ -32,6 +43,7 @@
                 compSC.innerHTML = compscore;
             }
         }
+
         
         const game = (userchoice) => {
             userc.innerHTML = `You chose: ${userchoice}`;
@@ -65,3 +77,4 @@
                 }, 150);
             });
         });
+resetBtn.addEventListener("click", resetF);
