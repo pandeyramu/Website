@@ -114,7 +114,7 @@
             white-space: nowrap;
             border-right: 4px solid #3498db;
             width: 0;
-            animation: typing 3s steps(12) forwards, blink 0.75s step-end infinite;
+            animation: typing 4s steps(12) forwards, blink .75s step-end infinite;
         }
 
         @keyframes typing {
