@@ -195,6 +195,9 @@
         #Calculator {
             background: linear-gradient(135deg, #48bcfa, #4cafa8);
         }
+        #typing{
+            background: linear-gradient(135deg, #f8df22, #94821c);
+        }
 
         .project-card::before {
             content: '';
