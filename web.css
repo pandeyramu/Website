@@ -177,7 +177,6 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #b045e9, #9c27b0);
             border-radius: 20px;
             padding: 30px 20px;
             text-align: center;
@@ -187,16 +186,34 @@
             position: relative;
             overflow: hidden;
         }
-
+        .disabled{
+            opacity: 0.5;
+            /* pointer-events: none; */
+            cursor: not-allowed;
+        }
+        #Tic{
+           background: linear-gradient(135deg, #b045e9, #9c27b0);
+        }
         #Rock {
             background: linear-gradient(135deg, #66fa48, #4caf50);
         }
-        
         #Calculator {
             background: linear-gradient(135deg, #48bcfa, #4cafa8);
         }
-        #typing{
+        #Typing{
             background: linear-gradient(135deg, #f8df22, #94821c);
+        }
+          #Calculator.disabled{
+            opacity: 0.5;
+            background: linear-gradient(135deg, #0f0f0f, #eaeaea);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        #Typing.disabled{
+            opacity: 0.5;
+            background: linear-gradient(135deg, #0f0f0f, #eaeaea);
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .project-card::before {
