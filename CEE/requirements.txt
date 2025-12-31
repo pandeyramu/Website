@@ -35,9 +35,9 @@ openpyxl==3.1.5
 opt_einsum==3.4.0
 optree==0.18.0
 packaging==25.0
-pandas==2.4.0        
+pandas==2.3.5
 pillow==11.2.1
-protobuf==6.0.3      
+protobuf==6.0.3
 psycopg2-binary==2.9.11
 python-dateutil==2.9.0.post0
 python-docx==1.2.0
