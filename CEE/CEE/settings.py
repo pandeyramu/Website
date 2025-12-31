@@ -12,25 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
-
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cee_quiz',
-        'USER': 'cee_quiz_user',
-        'PASSWORD': 'zYAZ2PR6Z95GdW7LjIXHNHCjzy8kXW1I',
-        'HOST': 'dpg-d5aiu9fgi27c7393bd2g-a.oregon-postgres.render.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
-    }
-}
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -104,6 +87,13 @@ WSGI_APPLICATION = 'CEE.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
