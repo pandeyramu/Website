@@ -13,35 +13,12 @@
         <div class="title">Calculator</div>
         <button class="theme" id="themeBtn" onclick="toggleTheme()">🌙</button>
     </div>
-    <div class="mode-toggle">
-        <button class="mode-btn active" onclick="setMode('basic')">Basic</button>
-        <button class="mode-btn" onclick="setMode('scientific')">Scientific</button>
+    <div class="mode">
+        Basic
     </div>
     <div class="display">
         <div class="expression" id="expression"></div>
         <div class="result" id="result">0</div>
-    </div>
-    <div class="scientific-functions" id="scientificfunctions">
-        <button class="function" onclick="inputFunction('sin')">sin</button>
-        <button class="function" onclick="inputFunction('cos')">cos</button>
-        <button class="function" onclick="inputFunction('tan')">tan</button>
-        <button class="function" onclick="inputFunction('log')">log</button>
-        <button class="function" onclick="inputFunction('asin')">sin⁻¹</button>
-        <button class="function" onclick="inputFunction('acos')">cos⁻¹</button>
-        <button class="function" onclick="inputFunction('atan')">tan⁻¹</button>
-        <button class="function" onclick="inputFunction('ln')">ln</button>
-        <button class="function" onclick="inputFunction('sqrt')">√</button>
-        <button class="function" onclick="inputFunction('pow2')">x²</button>
-        <button class="function" onclick="inputFunction('reciprocal')">1/x</button>
-        <button class="function" onclick="inputOperator('^')">x^y</button>
-        <button class="function" onclick="inputFunction('factorial')">x!</button>
-        <button class="function" onclick="inputFunction('abs')">|x|</button>
-        <button class="function" onclick="inputNumber('3.14159')">π</button>
-        <button class="function" onclick="inputNumber('2.71828')">e</button>
-        <button class="function" onclick="toggleSign()">±</button>
-        <button class="function" onclick="inputOperator('%')">%</button>
-        <button class="function" onclick="inputOperator('(')">(</button>
-        <button class="function" onclick="inputOperator(')')">)</button>
     </div>
     <div class="buttons">
         <button class="clear" onclick="clearAll()">AC</button>
