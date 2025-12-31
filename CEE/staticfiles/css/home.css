@@ -1,0 +1,185 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #fdfbfb, #ebedee);
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+.welcome-text{
+    max-width: 900px;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto 10px auto;
+    padding-top: 0;
+    padding: 20px 25px;
+        background:rgba(52, 152, 219, 0.1) ;
+    border-left: 6px solid #2980b9;
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #2c3e50;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    white-space: pre-wrap;
+    border-right: 3px solid #2980b9;
+    animation: blink 0.75s step-end infinite;
+    position: relative;
+}
+.table-wrapper {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.table-wrapper h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+table thead {
+    background: linear-gradient(105deg, #b31919 20%,#06ad49 80%);
+    color: white;
+}
+
+table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: background 0.2s ease;
+}
+table td {
+    padding: 12px 15px;
+}
+
+table td:last-child {
+    text-align: center;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.domain-row {
+    background: #ecf0f1;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.total-row {
+    background: #34495e;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto 20px auto;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+p {
+    color: rgb(0, 255, 13);
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+li {
+    margin: 0;
+}
+
+a.subject-link , .full-test-btn a {
+    display: inline-block;
+    padding: 20px 30px;
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+    font-size: 18px;
+}
+
+a.subject-link:hover, .full-test-btn a:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .table-wrapper {
+        padding: 20px;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}

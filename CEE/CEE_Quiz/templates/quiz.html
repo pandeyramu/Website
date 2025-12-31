@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+{% load quiz_extra %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ chapter.name }} Quiz</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ chapter.name }} Quiz</h1>
+        
+        {% if questions %}
+            {% if not quiz_started and score is None %}
+            <form method="get">
+            <input type="text" name="name" class="name_place" placeholder="Enter your name" required>
+            <button type="submit" name="start" value="1" id="start_btn" class="start_test"> Start Test</button>
+                </form>
+            {% endif %}
+            
+            {% if not quiz_started and score is None %}
+                <div id="timer" style="display: none;"></div>
+            {% endif %}
+            {% endif %}
+
+            {% if questions %}
+                <form method="POST" class="quiz-form {% if score is not None %}submitted{% endif %}" action="{% url 'quiz' chapter.id %}" id="quiz-form"
+                {% if not quiz_started and score is None %}style="display: none;"{% else %}style="display: block;"{% endif %}>
+                {% csrf_token %}
+                 <input type="hidden" name="name" id="hidden-name" value="{{ request.GET.name|default:'' }}">
+                {% for q in questions %}
+                <div class="question-block">
+                    <p><strong>{{ forloop.counter }}. {{ q.question_text }}</strong></p>
+                    {% for opt in "ABCD" %}
+                    {% with option_text=q|get_option_text:opt %}
+                    {% with user_choice=user_answers|dict_get:q.id %}
+                    <label class="option
+                        {% if score is not None %}
+                            {% if opt == q.correct_option %} correct {% endif %}
+                            {% if user_choice|default:'' == opt and opt != q.correct_option %} wrong {% endif %}
+                        {% endif %}
+                         {% if user_choice|default:'' == opt %} selected {% endif %}">
+                        <input type="radio" name="q{{ q.id }}" value="{{ opt }}" 
+                               {% if score is not None %} disabled {% endif %} 
+                               {% if user_choice|default:'' == opt %} checked  {% endif %}>
+                        <span class="option-text">{{ opt }}. {{ option_text }}</span>
+                    </label>
+                    {% endwith %}
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                
+                {% if score is None %}
+                    <button type="submit" class="submit-btn">Submit Quiz</button>
+                {% else %}
+                    {% if score is not None %}
+    <div class="score-card">
+        <h2 class="score-title">Quiz Results</h2>
+        <div class="score-stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Questions:</span>
+                <span class="stat-value">{{ total_questions }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Attempted:</span>
+                <span class="stat-value">{{ total_attempted }}</span>
+            </div>
+            <div class="stat-item correct">
+                <span class="stat-label">Correct:</span>
+                <span class="stat-value">{{ total_correct }}</span>
+            </div>
+            <div class="stat-item wrong">
+                <span class="stat-label">Wrong:</span>
+                <span class="stat-value">{{ total_wrong }}</span>
+            </div>
+            <div class="stat-item skipped">
+                <span class="stat-label">Skipped:</span>
+                <span class="stat-value">{{ total_skipped }}</span>
+            </div>
+            <div class="stat-item final-score">
+                <span class="stat-label">Final Score:</span>
+                <span class="stat-value">{{ score }} / {{ total_questions }}</span>
+            </div>
+        </div>
+    </div>
+{% endif %}
+                {% endif %}
+            </form>
+        {% else %}
+            <p class="no-questions">No questions available for this chapter.</p>
+        {% endif %}
+
+        <div class="links">
+            {% if questions %}
+    {% if score is not None or quiz_started %}
+        <a href="{% url 'quiz' chapter.id %}" class="go_back">Go Back</a>
+    {% endif %}
+{% endif %}
+
+            <a href="{% url 'chapters' chapter.subject.id %}" class="back-chapters">Back to Chapters</a>
+            <a href="{% url 'home' %}" class="back-subjects" >Back to Subjects</a>
+        </div>
+    </div>
+    <script src="{% static 'js/style.js' %}"></script>
+</body>
+
+</html>

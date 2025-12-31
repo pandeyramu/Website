@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/chapter.css' %}">
+    <title>Chapters - {{ subject.name }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Chapters for {{ subject.name }}</h1>
+
+        <div class="chapter-container">
+            {% for chap in chapters %}
+                <div class="chapter-card">
+                    <a href="{% url 'quiz' chap.id %}" class="chapter-link">{{ chap.name }}</a>
+                </div>
+            {% empty %}
+                <p>No chapters available</p>
+            {% endfor %}
+        </div>
+
+        <div class="back-button">
+            <a href="{% url 'home' %}">Back to Subjects</a>
+        </div>
+    </div>
+</body>
+</html>
