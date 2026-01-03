@@ -71,7 +71,6 @@ def quiz(request, chapter_id):
             'quiz_started': quiz_started
         })
 
-
 def full_test(request):
     user_name = request.GET.get('name') or request.POST.get('name')
     if request.method == "POST":
@@ -124,11 +123,14 @@ def full_test(request):
         })
     else:
         user_name = request.GET.get('name', '').strip()
-        all_questions = list(Question.objects.all())
-        if len(all_questions) < 180:
-            questions = all_questions
-        else:
-            questions = random.sample(all_questions, 180)
+        biology_questions = list(Question.objects.filter(chapter__subject__name='Biology'))
+        physics_questions = list(Question.objects.filter(chapter__subject__name='Physics'))
+        chemistry_questions = list(Question.objects.filter(chapter__subject__name='Chemistry'))
+        selected_biology = random.sample(biology_questions, min(80, len(biology_questions)))
+        selected_physics = random.sample(physics_questions, min(50, len(physics_questions)))
+        selected_chemistry = random.sample(chemistry_questions, min(50, len(chemistry_questions)))
+        questions = selected_biology + selected_physics + selected_chemistry
+        
         request.session['full_test_questions'] = [q.id for q in questions]
         return render(request, 'full_test.html', {
             'questions': questions,
