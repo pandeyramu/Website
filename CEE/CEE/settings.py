@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "unsafe-temp-key")
 SECRET_KEY = 'django-insecure-x8r-%)q(4&p422u108&w&k#rsc(nc9=!)$4e7^l+b^qee^rdfp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -108,6 +108,13 @@ else:
             'PORT': os.environ.get('DB_PORT', '5432'),
         }
     }
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+
 
 
 # Password validation
